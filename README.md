@@ -1,4 +1,3 @@
-
 # tomkyle/kurzelinks
 
 **tomkyle/kurzelinks** is a PHP library designed to create short links using the [kurzelinks.de](https://kurzelinks.de) service. This library provides different implementations of the `KurzeLinksInterface` to allow developers to integrate and extend the short link creation functionality with ease.
@@ -16,6 +15,7 @@
   - [RateLimitKurzeLinks](#ratelimitkurzelinks)
   - [Psr6CacheKurzeLinks](#psr6cachekurzelinks)
   - [PassthroughKurzeLinks](#passthroughkurzelinks)
+  - [CallableKurzeLinks](#callablekurzelinks)
 - [Interface](#interface)
   - [KurzeLinksInterface](#kurzelinksinterface)
 
@@ -100,6 +100,30 @@ $passthroughKurzeLinks = new PassthroughKurzeLinks();
 
 $shortUrl = $passthroughKurzeLinks->create('https://example.com');
 echo $shortUrl;  // Outputs the original URL: https://example.com
+```
+
+### CallableKurzeLinks
+
+The `CallableKurzeLinks` class is a decorator that allows a `KurzeLinksInterface` implementation to be invoked directly as a callable.
+
+#### Example
+
+```php
+use tomkyle\KurzeLinks\CallableKurzeLinks;
+use tomkyle\KurzeLinks\GuzzleKurzeLinks;
+
+$api = 'https://kurzelinks.de/api';
+$key = 'your_api_key';
+$innerKurzeLinks = new GuzzleKurzeLinks($api, $key);
+$callableKurzeLinks = new CallableKurzeLinks($innerKurzeLinks);
+
+// Use as callable
+$shortUrl = $callableKurzeLinks('https://example.com');
+echo $shortUrl;  // Outputs the shortened URL
+
+// Use create method directly
+$shortUrl = $callableKurzeLinks->create('https://example.com');
+echo $shortUrl;  // Outputs the shortened URL
 ```
 
 ## Interface
