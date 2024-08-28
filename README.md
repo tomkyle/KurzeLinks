@@ -3,6 +3,11 @@
 
 **tomkyle/kurzelinks** is a PHP library designed to create short links using the [kurzelinks.de](https://kurzelinks.de) service. This library provides different implementations of the `KurzeLinksInterface` to allow developers to integrate and extend the short link creation functionality with ease.
 
+[![Packagist](https://img.shields.io/packagist/v/tomkyle/kurzelinks.svg?style=flat)](https://packagist.org/packages/tomkyle/kurzelinks)
+[![PHP version](https://img.shields.io/packagist/php-v/tomkyle/kurzelinks.svg)](https://packagist.org/packages/tomkyle/kurzelinks)
+[![Tests](https://github.com/tomkyle/KurzeLinks/actions/workflows/php.yml/badge.svg)](https://github.com/tomkyle/KurzeLinks/actions/workflows/php.yml)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+
 ## Table of Contents
 
 - [Installation](#installation)
