@@ -1,0 +1,31 @@
+{
+		"name": "tomkyle/kurzelinks",
+		"description": "Link shortener using the kurzelinks.de API. Supports PSR-6 caches and rate limits.",
+		"keywords": ["link shortener", "url shortener", "url", "shortener", "shortening"],
+		"license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "tomkyle\\KurzeLinks\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "tests\\": "tests"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "require": {
+    	  "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.8",
+        "psr/cache": "^3.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.10",
+        "friendsofphp/php-cs-fixer": "^3.11",
+				"phpunit/phpunit": "^11.0",
+				"rector/rector": "^1.0",
+        "tomkyle/find-run-test": "^1.0"
+    }
+}
