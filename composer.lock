@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27ee8dc7e9907b64849ae206ead5151b",
+    "content-hash": "4ee8d3b6fe5be8dbb723cbed8085af73",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -1053,16 +1053,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.63.1",
+            "version": "v3.63.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "ee3cc2e1fbfbddf98c17d4615db574a2a311c1ea"
+                "reference": "9d427f3f14984403a6ae9fc726b61765ca0c005e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/ee3cc2e1fbfbddf98c17d4615db574a2a311c1ea",
-                "reference": "ee3cc2e1fbfbddf98c17d4615db574a2a311c1ea",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/9d427f3f14984403a6ae9fc726b61765ca0c005e",
+                "reference": "9d427f3f14984403a6ae9fc726b61765ca0c005e",
                 "shasum": ""
             },
             "require": {
@@ -1144,7 +1144,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.63.1"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.63.2"
             },
             "funding": [
                 {
@@ -1152,7 +1152,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-26T14:03:20+00:00"
+            "time": "2024-08-28T10:47:21+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -4801,16 +4801,16 @@
         },
         {
             "name": "tomkyle/find-run-test",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tomkyle/frt.git",
-                "reference": "d6035f111f6fbe081fe4b8250974e1c74d7c974e"
+                "reference": "a12a55ce86d18ae7ba20e825f54fce220bc8b434"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tomkyle/frt/zipball/d6035f111f6fbe081fe4b8250974e1c74d7c974e",
-                "reference": "d6035f111f6fbe081fe4b8250974e1c74d7c974e",
+                "url": "https://api.github.com/repos/tomkyle/frt/zipball/a12a55ce86d18ae7ba20e825f54fce220bc8b434",
+                "reference": "a12a55ce86d18ae7ba20e825f54fce220bc8b434",
                 "shasum": ""
             },
             "require": {
@@ -4819,7 +4819,7 @@
                 "symfony/finder": "^7.1"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.60",
+                "friendsofphp/php-cs-fixer": "^3.63",
                 "phpstan/phpstan": "^1.11",
                 "phpunit/phpunit": "^11.2",
                 "rector/rector": "^1.2",
@@ -4845,9 +4845,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tomkyle/frt/issues",
-                "source": "https://github.com/tomkyle/frt/tree/1.0.4"
+                "source": "https://github.com/tomkyle/frt/tree/1.0.5"
             },
-            "time": "2024-08-11T17:46:07+00:00"
+            "time": "2024-08-28T15:12:28+00:00"
         }
     ],
     "aliases": [],
