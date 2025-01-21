@@ -22,7 +22,7 @@ class GuzzleKurzeLinks implements KurzeLinksInterface
      * @param string      $key    KurzeLinks.de API key
      * @param Client|null $client Optional: Custom Guzzle client
      */
-    public function __construct(protected string $api, protected string $key, Client $client = null)
+    public function __construct(protected string $api, protected string $key, ?Client $client = null)
     {
         $this->guzzle = $client ?: new Client();
     }
