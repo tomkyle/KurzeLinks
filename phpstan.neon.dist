@@ -7,9 +7,6 @@ parameters:
 	paths:
 		- src
 
-	excludePaths:
-		- _schrott
-
 	ignoreErrors:
 
 		# -
