@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * This file is part of tomkyle/kurzelinks
+ *
+ * Link shortener using the kurzelinks.de API. Supports PSR-6 caches and rate limits.
+ */
+
 namespace tests\Unit;
 
 use PHPUnit\Framework\TestCase;
@@ -15,7 +21,6 @@ use GuzzleHttp\Psr7\HttpFactory;
 
 class Psr18KurzeLinksTest extends TestCase
 {
-
     /**
      * @var ClientInterface&\PHPUnit\Framework\MockObject\MockObject
      */
@@ -40,7 +45,7 @@ class Psr18KurzeLinksTest extends TestCase
         $this->httpClient = $this->createMock(ClientInterface::class);
     }
 
-    protected function createResponse(int $status, string $reason, string $body) : ResponseInterface
+    protected function createResponse(int $status, string $reason, string $body): ResponseInterface
     {
         $response = $this->createMock(ResponseInterface::class);
         $response->method('getStatusCode')->willReturn($status);
@@ -58,8 +63,8 @@ class Psr18KurzeLinksTest extends TestCase
     {
         $response = $this->createResponse(200, 'OK', json_encode([
             'shorturl' => [
-                'url' => 'https://kurzelinks.de/short-url'
-            ]
+                'url' => 'https://kurzelinks.de/short-url',
+            ],
         ]));
 
 
@@ -71,7 +76,7 @@ class Psr18KurzeLinksTest extends TestCase
             'fake_api_key',
             $this->httpClient,
             $this->requestFactory,
-            $this->streamFactory
+            $this->streamFactory,
         );
 
         $shortUrl = $sut->create('https://example.com');
@@ -96,7 +101,7 @@ class Psr18KurzeLinksTest extends TestCase
             'fake_api_key',
             $this->httpClient,
             $this->requestFactory,
-            $this->streamFactory
+            $this->streamFactory,
         );
 
         $this->expectException(\UnexpectedValueException::class);
@@ -120,7 +125,7 @@ class Psr18KurzeLinksTest extends TestCase
             'fake_api_key',
             $this->httpClient,
             $this->requestFactory,
-            $this->streamFactory
+            $this->streamFactory,
         );
 
         $this->expectException(\UnexpectedValueException::class);
@@ -144,7 +149,7 @@ class Psr18KurzeLinksTest extends TestCase
             'fake_api_key',
             $this->httpClient,
             $this->requestFactory,
-            $this->streamFactory
+            $this->streamFactory,
         );
 
         $this->expectException(\UnexpectedValueException::class);
@@ -169,7 +174,7 @@ class Psr18KurzeLinksTest extends TestCase
             'fake_api_key',
             $this->httpClient,
             $this->requestFactory,
-            $this->streamFactory
+            $this->streamFactory,
         );
 
         $this->expectException(\UnexpectedValueException::class);
@@ -200,8 +205,8 @@ class Psr18KurzeLinksTest extends TestCase
     {
         $response = $this->createResponse(200, 'OK', json_encode([
             'shorturl' => [
-                'url' => 'https://kurzelinks.de/short-url'
-            ]
+                'url' => 'https://kurzelinks.de/short-url',
+            ],
         ]));
 
 
@@ -213,7 +218,7 @@ class Psr18KurzeLinksTest extends TestCase
             'fake_api_key',
             $this->httpClient,
             $this->requestFactory,
-            $this->streamFactory
+            $this->streamFactory,
         );
 
         $shortUrl = $sut->create($url);
@@ -221,33 +226,33 @@ class Psr18KurzeLinksTest extends TestCase
         $this->assertSame('https://kurzelinks.de/short-url', $shortUrl);
     }
 
-/**
- * Tests that the Psr18KurzeLinks class catches and handles a ClientExceptionInterface thrown by the HTTP client.
- *
- * @return void
- */
-public function testCreateCatchesClientException(): void
-{
-    // Create a mock for the exception to be thrown
-    $exception = $this->createMock(ClientExceptionInterface::class);
+    /**
+     * Tests that the Psr18KurzeLinks class catches and handles a ClientExceptionInterface thrown by the HTTP client.
+     *
+     * @return void
+     */
+    public function testCreateCatchesClientException(): void
+    {
+        // Create a mock for the exception to be thrown
+        $exception = $this->createMock(ClientExceptionInterface::class);
 
-    // Configure the HTTP client mock to throw the exception when sendRequest is called
-    $this->httpClient->method('sendRequest')
-        ->willThrowException($exception);
+        // Configure the HTTP client mock to throw the exception when sendRequest is called
+        $this->httpClient->method('sendRequest')
+            ->willThrowException($exception);
 
-    $sut = new Psr18KurzeLinks(
-        'https://kurzelinks.de/api',
-        'fake_api_key',
-        $this->httpClient,
-        $this->requestFactory,
-        $this->streamFactory
-    );
+        $sut = new Psr18KurzeLinks(
+            'https://kurzelinks.de/api',
+            'fake_api_key',
+            $this->httpClient,
+            $this->requestFactory,
+            $this->streamFactory,
+        );
 
-    $this->expectException(\RuntimeException::class);
-    $this->expectExceptionMessage('HTTP request failed');
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('HTTP request failed');
 
-    // Call the create method, which should catch the ClientExceptionInterface and rethrow it as a RuntimeException
-    $sut->create('https://example.com');
-}
+        // Call the create method, which should catch the ClientExceptionInterface and rethrow it as a RuntimeException
+        $sut->create('https://example.com');
+    }
 
 }

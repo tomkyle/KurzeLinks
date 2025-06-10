@@ -1,13 +1,12 @@
 <?php
 
 /**
- * tomkyle/kurzelinks
+ * This file is part of tomkyle/kurzelinks
  *
- * Create short links with kurzelinks.de
+ * Link shortener using the kurzelinks.de API. Supports PSR-6 caches and rate limits.
  */
 
 use Rector\Config\RectorConfig;
-
 use Rector\Naming\Rector\Variable\RenameVariableToMatchMethodCallNameRector;
 use Rector\Naming\ValueObject\RenameVariableToMatchMethodCallName;
 use Rector\Naming\ValueObject\VariableRenaming;
@@ -15,7 +14,7 @@ use Rector\Naming\ValueObject\VariableRenaming;
 return RectorConfig::configure()
     ->withPaths([
         __DIR__ . '/bin',
-        __DIR__ . '/src'
+        __DIR__ . '/src',
     ])
     ->withRootFiles()
     ->withPhpSets()
