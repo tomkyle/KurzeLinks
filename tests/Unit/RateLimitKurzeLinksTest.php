@@ -1,9 +1,9 @@
 <?php
 
 /**
- * tomkyle/kurzelinks
+ * This file is part of tomkyle/kurzelinks
  *
- * Create short links with kurzelinks.de
+ * Link shortener using the kurzelinks.de API. Supports PSR-6 caches and rate limits.
  */
 
 namespace tests\Unit;
@@ -15,13 +15,12 @@ use tomkyle\KurzeLinks\KurzeLinksInterface;
 
 class RateLimitKurzeLinksTest extends TestCase
 {
-
     protected $pass_through;
 
     protected $inner_kurzelinks;
 
     #[\Override]
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -51,7 +50,7 @@ class RateLimitKurzeLinksTest extends TestCase
         $this->assertEquals($milli_seconds, $sut->setSleepBetween($milli_seconds)->getSleepBetween());
     }
 
-    public static function provideSleepBetweenValues() : array
+    public static function provideSleepBetweenValues(): array
     {
         return ['0ms' => [ 0], '10ms' => [ 10], '20000ms' => [ 2000]];
     }

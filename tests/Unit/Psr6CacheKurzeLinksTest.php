@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * This file is part of tomkyle/kurzelinks
+ *
+ * Link shortener using the kurzelinks.de API. Supports PSR-6 caches and rate limits.
+ */
+
 namespace tests\Unit;
 
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -27,7 +33,7 @@ class Psr6CacheKurzeLinksTest extends TestCase
         $this->cacheItemMock = $this->createMock(CacheItemInterface::class);
     }
 
-    public function testConstruct() : void
+    public function testConstruct(): void
     {
         $sut = new Psr6CacheKurzeLinks($this->kurzeLinksMock, $this->cacheItemPoolMock);
         $this->assertInstanceOf(KurzeLinksInterface::class, $sut);
@@ -118,4 +124,3 @@ class Psr6CacheKurzeLinksTest extends TestCase
     }
 
 }
-

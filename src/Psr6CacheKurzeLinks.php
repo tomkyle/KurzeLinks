@@ -1,9 +1,9 @@
 <?php
 
 /**
- * tomkyle/kurzelinks
+ * This file is part of tomkyle/kurzelinks
  *
- * Create short links with kurzelinks.de
+ * Link shortener using the kurzelinks.de API. Supports PSR-6 caches and rate limits.
  */
 
 namespace tomkyle\KurzeLinks;

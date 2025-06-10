@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * This file is part of tomkyle/kurzelinks
+ *
+ * Link shortener using the kurzelinks.de API. Supports PSR-6 caches and rate limits.
+ */
+
 namespace tests\Unit;
 
 use GuzzleHttp\Client;
@@ -28,7 +34,7 @@ class GuzzleKurzeLinksTest extends TestCase
         $this->guzzleMock = $this->createMock(Client::class);
     }
 
-    public function testConstruct() : void
+    public function testConstruct(): void
     {
         $sut = new GuzzleKurzeLinks($this->api, $this->key, $this->guzzleMock);
         $this->assertInstanceOf(KurzeLinksInterface::class, $sut);

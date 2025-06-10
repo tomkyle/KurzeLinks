@@ -1,9 +1,9 @@
 <?php
 
 /**
- * tomkyle/kurzelinks
+ * This file is part of tomkyle/kurzelinks
  *
- * Create short links with kurzelinks.de
+ * Link shortener using the kurzelinks.de API. Supports PSR-6 caches and rate limits.
  */
 
 namespace tomkyle\KurzeLinks;
@@ -23,9 +23,7 @@ class Psr18KurzeLinks implements KurzeLinksInterface
      * @param RequestFactoryInterface  $requestFactory PSR-17 request factory
      * @param StreamFactoryInterface   $streamFactory  PSR-17 stream factory
      */
-    public function __construct(protected string $api, protected string $key, protected ClientInterface $httpClient, protected RequestFactoryInterface $requestFactory, protected StreamFactoryInterface $streamFactory)
-    {
-    }
+    public function __construct(protected string $api, protected string $key, protected ClientInterface $httpClient, protected RequestFactoryInterface $requestFactory, protected StreamFactoryInterface $streamFactory) {}
 
     #[\Override]
     public function create(string $url): string

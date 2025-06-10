@@ -1,9 +1,18 @@
 <?php
 $header = <<<EOF
-tomkyle/kurzelinks
+This file is part of {{name}}
 
-Create short links with kurzelinks.de
+{{description}}
 EOF;
+
+$info = json_decode(file_get_contents(__DIR__ . '/composer.json'), true);
+
+$header = trim(str_replace(
+    ['{{name}}', '{{description}}' ],
+    [$info['name'], $info['description'] ?? null],
+    $header
+));
+
 
 $finder = PhpCsFixer\Finder::create()
     ->in([
